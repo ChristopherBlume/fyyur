@@ -23,7 +23,7 @@ class Venue(db.Model):
   state = db.Column(db.String(120))
   address = db.Column(db.String(120))
   phone = db.Column(db.String(120))
-  genres = db.Column(db.ARRAY(db.String))
+  genres = db.Column(db.ARRAY(db.String()))
   image_link = db.Column(db.String(500))
   facebook_link = db.Column(db.String(120))
   # Addtion to Venue Model according to Mock data
@@ -44,7 +44,7 @@ class Artist(db.Model):
   city = db.Column(db.String(120))
   state = db.Column(db.String(120))
   phone = db.Column(db.String(120))
-  genres = db.Column(db.ARRAY(db.String))
+  genres = db.Column(db.ARRAY(db.String()))
   image_link = db.Column(db.String(500))
   facebook_link = db.Column(db.String(120))
   # Addtion to Artist Model according to Mock data
