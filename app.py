@@ -91,12 +91,12 @@ def show_venue(venue_id):
     return render_template('errors/404.html')
   
   # Join on tables to get all data
-  past_shows_list = db.session.query(Artist, Show).Join(Show).Join(Venue).filter(
+  past_shows_list = db.session.query(Artist, Show).join(Show).join(Venue).filter(
     Show.venue_id == venue_id,
     Show.artist_id == Artist.id,
     Show.start_time < datetime.now()
   ).all()
-  upcoming_shows_list = db.session.query(Artist, Show).Join(Show).Join(Venue).filter(
+  upcoming_shows_list = db.session.query(Artist, Show).join(Show).join(Venue).filter(
     Show.venue_id == venue_id,
     Show.artist_id == Artist.id,
     Show.start_time > datetime.now()
@@ -328,20 +328,6 @@ def create_shows():
 
 @app.route('/shows/create', methods=['POST'])
 def create_show_submission():
-  # show = Show(
-  #   artist = request.form['artist_id'],
-  #   venue = request.form['venue_id'],
-  #   start_time = request.form['start_time'],
-  # )
-  # try:
-  #   db.session.add(show)
-  #   db.session.commit()
-  #   flash('Show was successfully listed')
-  # except Exception as e:
-  #   print(e)
-  #   flash('An error occurred. Show could not be added')
-  # finally:
-  #   db.session.close()
   error = False
   try: 
     artist_id = request.form['artist_id']
