@@ -29,6 +29,12 @@
 		<p>
 			<i class="fab fa-facebook-f"></i> {% if venue.facebook_link %}<a href="{{ venue.facebook_link }}" target="_blank">{{ venue.facebook_link }}</a>{% else %}No Facebook Link{% endif %}
 		</p>
+		<a href="/venues/{{ venue.id }}/edit">
+			<button class="btn btn-default btn-sm">
+				Edit
+			</button>
+		</a>
+		<br>
 		{% if venue.seeking_talent %}
 		<div class="seeking">
 			<p class="lead">Currently seeking talent</p>
